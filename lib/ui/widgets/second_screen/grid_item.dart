@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GridItem extends StatelessWidget {
   final String title;
@@ -9,7 +8,9 @@ class GridItem extends StatelessWidget {
   final String url;
 
   /// Named parameters are preferred, they make the code easier to understand.
-  const GridItem({Key? key, required this.title, required this.icon, required this.url}): super(key: key);
+  const GridItem(
+      {Key? key, required this.title, required this.icon, required this.url})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,7 @@ class GridItem extends StatelessWidget {
   }
 
   /// Example: Use the url_launcher package to open the browser
-  void _launchUrl() async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+  void _launchUrl() async => await canLaunchUrlString(url)
+      ? await launchUrlString(url)
+      : throw 'Could not launch $url';
 }

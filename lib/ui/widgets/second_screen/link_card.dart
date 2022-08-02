@@ -1,8 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LinkCard extends StatelessWidget {
   final String title;
@@ -43,5 +42,5 @@ class LinkCard extends StatelessWidget {
 
   /// Example: Use the url_launcher package to open the browser
   void _launchUrl() async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+      await canLaunchUrlString(url) ? await launchUrlString(url) : throw 'Could not launch $url';
 }
